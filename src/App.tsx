@@ -1,7 +1,9 @@
 import KPICards from "./components/KPICards"
+import SalesTrendChart from "./components/SalesTrendChart"
 import { useDashboardStore } from "./store/dashboardStore"
 
 function App() {
+
   const filteredData = useDashboardStore((state) => state.filteredData())
 
   return (
@@ -14,8 +16,12 @@ function App() {
       {/* KPI Section */}
       <KPICards />
 
-      {/* Sales Records */}
+      {/* Trend Chart */}
+      <SalesTrendChart />
+
+      {/* Data List */}
       <div className="bg-white p-4 rounded shadow">
+
         <h2 className="font-semibold mb-3">Sales Records</h2>
 
         {filteredData.map((sale) => (

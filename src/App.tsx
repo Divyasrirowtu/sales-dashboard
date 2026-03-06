@@ -1,39 +1,11 @@
-import KPICards from "./components/KPICards"
-import SalesTrendChart from "./components/SalesTrendChart"
-import { useDashboardStore } from "./store/dashboardStore"
+import SalesChart from "./components/charts/SalesChart";
 
 function App() {
-
-  const filteredData = useDashboardStore((state) => state.filteredData())
-
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-
-      <h1 className="text-3xl font-bold text-center mb-6">
-        Sales Dashboard
-      </h1>
-
-      {/* KPI Section */}
-      <KPICards />
-
-      {/* Trend Chart */}
-      <SalesTrendChart />
-
-      {/* Data List */}
-      <div className="bg-white p-4 rounded shadow">
-
-        <h2 className="font-semibold mb-3">Sales Records</h2>
-
-        {filteredData.map((sale) => (
-          <div key={sale.id} className="border-b py-2">
-            {sale.product} - {sale.region} - ${sale.amount}
-          </div>
-        ))}
-
-      </div>
-
+    <div className="p-10 bg-gray-100 min-h-screen">
+      <SalesChart />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
